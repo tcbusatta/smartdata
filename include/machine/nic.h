@@ -253,6 +253,8 @@ public:
         static void init();
 };
 
+#include <network/ethernet.h>
+
 // Polymorphic NIC base class
 template<typename Family>
 class NIC: public Family, public Family::Observed

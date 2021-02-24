@@ -14,7 +14,6 @@
 #include <utility/predictor.h>
 //#include <utility/math.h>
 #include <system/thread.h>
-#include <network/tstp/tstp.h>
 
 // __BEGIN_SYS
 
@@ -911,6 +910,8 @@ template<> inline SmartData::_Space<SmartData::CMx25_16>::operator SmartData::_S
 
 // __BEGIN_SYS
 
+#include <network/tstp/tstp.h>
+
 // Local data source, possibly advertised to or commanded through the network
 template<typename Transducer, typename Network>
 class Responsive_SmartData: public SmartData, public Observed, private Network::Observer, private Transducer::Observer
@@ -966,7 +967,7 @@ private:
 public:
     Responsive_SmartData(const Device_Id & dev, const Time & expiry, const Mode & mode = PRIVATE, const Microsecond & period = 0 )
     : _mode(mode), _origin(Locator::here(), Timekeeper::now()), _device(dev), _value(0), _uncertainty(UNCERTAINTY), _expiry(expiry),
-     _transducer(new (SYSTEM) Transducer(dev)), _predictor(predictive ? new (SYSTEM) Predictor(typename Predictor::Configuration(), false) : 0), _thread(0), _link(this) {
+     _transducer(new /*(SYSTEM)*/ Transducer(dev)), _predictor(predictive ? new /*(SYSTEM)*/ Predictor(typename Predictor::Configuration(), false) : 0), _thread(0), _link(this) {
         db<SmartData>(TRC) << "SmartData[R](d=" << dev << ",x=" << expiry << ",m=" << ((mode & COMMANDED) ? "CMD" : ((mode & ADVERTISED) ? "ADV" : "PRI")) << ")=>" << this << endl;
         if(active)
             _transducer->attach(this);
@@ -1085,7 +1086,7 @@ private:
         if(_mode & ADVERTISED) {
             Buffer * buffer = Network::alloc(sizeof(Response) + sizeof(Value));
             Header * header = buffer->frame()->template data<Header>();
-            Response * response = new (header) Response(_origin, UNIT, _device, (_mode | op), _uncertainty, _expiry);
+            Response * response = new /*(header)*/ Response(_origin, UNIT, _device, (_mode | op), _uncertainty, _expiry);
 
             if(op == RESPOND)
                 response->value<Value>(_value);

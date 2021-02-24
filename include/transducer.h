@@ -7,6 +7,8 @@
 
 // __BEGIN_SYS
 
+#define _UTIL
+
 template<unsigned long _UNIT>
 class Transducer: public SmartData, public Observed
 {
@@ -19,8 +21,8 @@ public:
 
     typedef typename Unit::Get<_UNIT>::Type Value;
 
-    //typedef _UTIL::Observer Observer;
-    //typedef _UTIL::Observed Observed;
+    typedef _UTIL::Observer Observer;
+    typedef _UTIL::Observed Observed;
 
 protected:
     Transducer() {}

@@ -11,10 +11,11 @@
 #define __nic_common_only__
 #include <machine/nic.h>
 #undef __nic_common_only__
-//#include <smartdata.h>
+#include <smartdata.h>
 //#include <utility/hash.h>
 //#include <utility/string.h>
 //#include <utility/array.h>
+#include <utility/convert.h>
 
 // __BEGIN_SYS
 
@@ -163,8 +164,8 @@ private:
 
 //#include "mac.h"
 //#include "security.h"
-//#include "locator.h"
-//#include "timekeeper.h"
+#include <network/tstp/locator.h>
+#include <network/tstp/timekeeper.h>
 //#include "router.h"
 //#include "manager.h"
 

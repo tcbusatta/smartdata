@@ -132,11 +132,9 @@ template<> struct Traits<Network> : public Traits<Build>
 	static const bool enabled = (Traits<Build>::NODES > 1) && (NETWORKS::Length > 0);
 };
 
-class UDPNet;
-
 template<> struct Traits<TSTP> : public Traits<Network>
 {
-	typedef UDPNet NIC_Family;
+	typedef Ethernet NIC_Family;
 	static constexpr unsigned int NICS[] = { 0 }; // relative to NIC_Family (i.e. Traits<Ethernet>::DEVICES[NICS[i]]
 	static const unsigned int UNITS = COUNTOF(NICS);
 
