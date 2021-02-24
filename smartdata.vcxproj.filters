@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="include\smartdata.h" />
+    <ClInclude Include="include\system\meta.h" />
+    <ClInclude Include="include\system\thread.h" />
+    <ClInclude Include="include\system\traits.h" />
+    <ClInclude Include="include\system\types.h" />
+    <ClInclude Include="include\utility\buffer.h" />
+    <ClInclude Include="include\utility\geometry.h" />
+    <ClInclude Include="include\utility\list.h" />
+    <ClInclude Include="include\utility\math.h" />
+    <ClInclude Include="include\utility\observer.h" />
+    <ClInclude Include="include\utility\predictor.h" />
+    <ClInclude Include="src\main_traits.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp" />
+  </ItemGroup>
+</Project>
