@@ -19,7 +19,8 @@ else(CMAKE_BUILD_TYPE MATCHES Debug)
 endif(CMAKE_BUILD_TYPE MATCHES Debug)
 
 include_directories (
-	$(SMARTDATA_SOURCE_DIR)include
+	$(SMARTDATA_SOURCE_DIR)/.
+	$(SMARTDATA_SOURCE_DIR)/include
 )
 
 set(CMAKE_CXX_FLAGS_DEBUG "-m32 -Wall -O0 -pg -Wfatal-errors")
@@ -27,6 +28,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "-m32 -Wall -O3 -Wfatal-errors -Wuninitialized -fno-
 
 add_executable (smartdata
 	src/main.cpp
+	src/network/tstp/tstp_init.cc
 )
 
 target_link_libraries (smartdata ${ADDITIONAL_LIBS} pthread rt) 

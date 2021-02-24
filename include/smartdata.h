@@ -1085,7 +1085,7 @@ private:
 
         if(_mode & ADVERTISED) {
             Buffer * buffer = Network::alloc(sizeof(Response) + sizeof(Value));
-            Header * header = buffer->frame()->template data<Header>();
+            // Header * header = buffer->frame()->template data<Header>();
             Response * response = new /*(header)*/ Response(_origin, UNIT, _device, (_mode | op), _uncertainty, _expiry);
 
             if(op == RESPOND)
