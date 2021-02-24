@@ -22,6 +22,8 @@ template<> struct Traits<Build> : public Traits_Tokens
 	typedef ALIST<> ASPECTS;
 };
 
+#include <architecture/ia32/ia32_traits.h>
+
 class Machine_Common;
 template<> struct Traits<Machine_Common> : public Traits<Build> {};
 
@@ -93,6 +95,17 @@ template<> struct Traits<System> : public Traits<Build>
 	static const unsigned int HEAP_SIZE = (Traits<Application>::MAX_THREADS + 1) * Traits<Application>::STACK_SIZE;
 };
 
+template<> struct Traits<Thread> : public Traits<Build>
+{
+	static const bool enabled = Traits<System>::multithread;
+	static const bool smp = Traits<System>::multicore;
+	static const bool simulate_capacity = false;
+	static const bool trace_idle = hysterically_debugged;
+
+	typedef Priority Criterion;
+	static const unsigned int QUANTUM = 10000; // us
+};
+
 class SmartData;
 
 template<> struct Traits<SmartData> : public Traits<Build>
@@ -107,4 +120,28 @@ template<> struct Traits<Debug> : public Traits<Build>
 	static const bool warning = true;
 	static const bool info = false;
 	static const bool trace = false;
+};
+
+template<> struct Traits<Network> : public Traits<Build>
+{
+	typedef LIST<TSTP> NETWORKS;
+
+	static const unsigned int RETRIES = 3;
+	static const unsigned int TIMEOUT = 10; // s
+
+	static const bool enabled = (Traits<Build>::NODES > 1) && (NETWORKS::Length > 0);
+};
+
+class UDPNet;
+
+template<> struct Traits<TSTP> : public Traits<Network>
+{
+	typedef UDPNet NIC_Family;
+	static constexpr unsigned int NICS[] = { 0 }; // relative to NIC_Family (i.e. Traits<Ethernet>::DEVICES[NICS[i]]
+	static const unsigned int UNITS = COUNTOF(NICS);
+
+	static const unsigned int KEY_SIZE = 16;
+	static const unsigned int RADIO_RANGE = 8000; // approximated radio range in centimeters
+
+	static const bool enabled = Traits<Network>::enabled && (NETWORKS::Count<TSTP>::Result > 0);
 };
