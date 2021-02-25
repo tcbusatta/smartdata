@@ -7,6 +7,7 @@
 #include <architecture/ia32/ia32_tsc.h>
 #include <string.h>
 #include <stdlib.h>
+#include <assert.h>
 
 // __BEGIN_SYS
 

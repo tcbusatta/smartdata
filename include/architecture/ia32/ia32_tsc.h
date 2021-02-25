@@ -5,6 +5,7 @@
 
 #include <architecture/cpu.h>
 #include <architecture/tsc.h>
+#include <system/types.h>
 
 // __BEGIN_SYS
 

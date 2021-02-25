@@ -4,6 +4,7 @@
 #define __cpu_h
 
 // #include <system/config.h>
+#include <utility/ostream.h>
 
 // __BEGIN_SYS
 

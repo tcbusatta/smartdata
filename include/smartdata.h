@@ -909,7 +909,7 @@ template<> inline SmartData::_Space<SmartData::CMx25_16>::operator SmartData::_S
 
 // __BEGIN_SYS
 
-#include <network/tstp/tstp.h>
+// #include <network/tstp/tstp.h>
 #include <system/thread.h>
 
 // Local data source, possibly advertised to or commanded through the network

@@ -4,6 +4,7 @@
 #define __ia32_h
 
 #include <architecture/cpu.h>
+#include <utility/debug.h>
 
 // __BEGIN_SYS
 

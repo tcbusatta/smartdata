@@ -13,8 +13,25 @@
     <ClInclude Include="include\utility\observer.h" />
     <ClInclude Include="include\utility\predictor.h" />
     <ClInclude Include="src\main_traits.h" />
+    <ClInclude Include="include\network\tstp\tstp.h" />
+    <ClInclude Include="include\machine\nic.h" />
+    <ClInclude Include="include\architecture\tsc.h" />
+    <ClInclude Include="include\architecture\ia32\ia32_tsc.h" />
+    <ClInclude Include="include\architecture\cpu.h" />
+    <ClInclude Include="include\architecture\ia32\ia32_traits.h" />
+    <ClInclude Include="include\architecture\ia32\ia32_cpu.h" />
+    <ClInclude Include="include\network\ethernet.h" />
+    <ClInclude Include="include\utility\convert.h" />
+    <ClInclude Include="include\network\tstp\locator.h" />
+    <ClInclude Include="include\network\hecops.h" />
+    <ClInclude Include="include\network\tstp\timekeeper.h" />
+    <ClInclude Include="include\utility\handler.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\network\tstp\tstp_init.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
   </ItemGroup>
 </Project>

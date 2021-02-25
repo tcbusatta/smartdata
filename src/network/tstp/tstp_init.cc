@@ -12,7 +12,7 @@
 //#include <system.h>
 //#include <time.h>
 
-__BEGIN_SYS
+// __BEGIN_SYS
 
 TSTP::TSTP(NIC<NIC_Family> * nic)
 {
@@ -150,6 +150,6 @@ void TSTP::init()
 //    return _instance;
 //}
 
-__END_SYS
+// __END_SYS
 
 #endif

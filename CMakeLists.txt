@@ -19,8 +19,8 @@ else(CMAKE_BUILD_TYPE MATCHES Debug)
 endif(CMAKE_BUILD_TYPE MATCHES Debug)
 
 include_directories (
-	$(SMARTDATA_SOURCE_DIR)/.
-	$(SMARTDATA_SOURCE_DIR)/include
+	$(SMARTDATA_SOURCE_DIR).
+	$(SMARTDATA_SOURCE_DIR)include
 )
 
 set(CMAKE_CXX_FLAGS_DEBUG "-m32 -Wall -O0 -pg -Wfatal-errors")
