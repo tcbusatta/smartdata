@@ -163,11 +163,11 @@ private:
 #define __tstp_h
 
 //#include "mac.h"
-//#include "security.h"
+#include <network/tstp/security.h>
 #include <network/tstp/locator.h>
 #include <network/tstp/timekeeper.h>
-//#include "router.h"
-//#include "manager.h"
+#include <network/tstp/router.h>
+#include <network/tstp/manager.h>
 
 // __BEGIN_SYS
 

@@ -23,18 +23,20 @@ TSTP::TSTP(NIC<NIC_Family> * nic)
 
     // The order parts are created defines the order they get notified when packets arrive:
     // mac->security(decrypt)->locator->timekeeper->router->manager->security(encrypt)->mac
-    _security = new (SYSTEM) Security;
-    _locator = new (SYSTEM) Locator;
-    _timekeeper = new (SYSTEM) Timekeeper; // here() reports (0,0,0) if _locator wasn't created first!
-    _router = new (SYSTEM) Router;
-    _manager = new (SYSTEM) Manager;
+    _security = new /*(SYSTEM)*/ Security;
+    _locator = new /*(SYSTEM)*/ Locator;
+    _timekeeper = new /*(SYSTEM)*/ Timekeeper; // here() reports (0,0,0) if _locator wasn't created first!
+    _router = new /*(SYSTEM)*/ Router;
+    _manager = new /*(SYSTEM)*/ Manager;
 }
 
 TSTP::Security::Security()
 {
     db<TSTP>(TRC) << "TSTP::Security()" << endl;
 
-    new (&_id) Node_Id(Machine::uuid(), sizeof(UUID));
+	unsigned char uuid[8] = { 0x01, 0x02, 0x03, 0x04, 0x05, 0x05, 0x07, 0x08 };
+
+    _id = new /*(&_id)*/ Node_Id(/*Machine::*/uuid/*()*/, sizeof(UUID));
 
     db<TSTP>(INF) << "TSTP::Security:uuid=" << _id << endl;
 
@@ -61,14 +63,14 @@ TSTP::Locator::Locator()
 {
     db<TSTP>(TRC) << "TSTP::Locator()" << endl;
 
-    System_Info::Boot_Map * bm = &System::info()->bm;
-    if(bm->space_x != Space::UNKNOWN) {
-        _engine.here(Space(bm->space_x, bm->space_y, bm->space_z));
-        _engine.confidence(100);
-    } else {
+    //System_Info::Boot_Map * bm = &System::info()->bm;
+    //if(bm->space_x != Space::UNKNOWN) {
+    //    _engine.here(Space(bm->space_x, bm->space_y, bm->space_z));
+    //    _engine.confidence(100);
+    //} else {
         _engine.here(Space(Space::UNKNOWN, Space::UNKNOWN, Space::UNKNOWN));
         _engine.confidence(0);
-    }
+    //}
 
     attach(this);
 
@@ -80,7 +82,7 @@ TSTP::Locator::Locator()
 
     // Wait for spatial localization
     while(confidence() < 80)
-        Thread::self()->yield();
+        Thread::/*self()->*/yield();
 
     // _absolute_location is initialized later through an Epoch message
 }
@@ -101,10 +103,10 @@ TSTP::Timekeeper::Timekeeper()
         _next_sync = 0;
         keep_alive();
         Microsecond period = static_cast<Microsecond>(sync_period());
-        _life_keeper_handler = new (SYSTEM) Function_Handler(&keep_alive);
-        _life_keeper = new (SYSTEM) Alarm(period, _life_keeper_handler, INFINITE);
+        _life_keeper_handler = new /*(SYSTEM)*/ Function_Handler(&keep_alive);
+        _life_keeper = new /*(SYSTEM)*/ Alarm(period, _life_keeper_handler, INFINITE);
         while(!synchronized())
-            Thread::self()->yield();
+            Thread::/*self()->*/yield();
     }
 }
 
@@ -130,8 +132,7 @@ void TSTP::init()
 
 	// Isso não vale mais...
     // NIC<NIC_Family> * nic = Traits<NIC_Family>::DEVICES::Get<Traits<TSTP>::NICS[0]>::Result::get(Traits<TSTP>::NICS[0]);
-
-    new (SYSTEM) TSTP(nic);
+    // new (SYSTEM) TSTP(nic);
 }
 
 //template <typename Engine>

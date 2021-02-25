@@ -2,7 +2,17 @@
 
 #include <system/types.h>
 
-class Periodic_Thread
+class Thread
+{
+public:
+	Thread(int (*)()) { }
+	static void yield()
+	{
+		// To be implemented.
+	}
+};
+
+class Periodic_Thread : public Thread
 {
 private:
 	Microsecond _period;
@@ -17,4 +27,10 @@ public:
 		// TCB - to be implemented.
 		return true;
 	}
+};
+
+class Alarm
+{
+public:
+	Alarm(const Microsecond & time, Handler * handler, unsigned int times = 1);
 };
