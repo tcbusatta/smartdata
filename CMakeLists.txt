@@ -28,6 +28,12 @@ set(CMAKE_CXX_FLAGS_RELEASE "-m32 -Wall -O3 -Wfatal-errors -Wuninitialized -fno-
 
 add_executable (smartdata
 	src/main.cpp
+	src/network/tstp/locator.cc
+	src/network/tstp/manager.cc
+	src/network/tstp/router.cc
+	src/network/tstp/security.cc
+	src/network/tstp/timekeeper.cc
+	src/network/tstp/tstp.cc
 	src/network/tstp/tstp_init.cc
 )
 

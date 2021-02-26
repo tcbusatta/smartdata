@@ -128,10 +128,14 @@
     <ClInclude Include="include\architecture\ia32\ia32_traits.h" />
     <ClInclude Include="include\architecture\ia32\ia32_tsc.h" />
     <ClInclude Include="include\architecture\tsc.h" />
+    <ClInclude Include="include\machine\aes.h" />
     <ClInclude Include="include\machine\nic.h" />
     <ClInclude Include="include\network\ethernet.h" />
     <ClInclude Include="include\network\hecops.h" />
     <ClInclude Include="include\network\tstp\locator.h" />
+    <ClInclude Include="include\network\tstp\manager.h" />
+    <ClInclude Include="include\network\tstp\router.h" />
+    <ClInclude Include="include\network\tstp\security.h" />
     <ClInclude Include="include\network\tstp\timekeeper.h" />
     <ClInclude Include="include\network\tstp\tstp.h" />
     <ClInclude Include="include\smartdata.h" />
@@ -139,18 +143,32 @@
     <ClInclude Include="include\system\thread.h" />
     <ClInclude Include="include\system\traits.h" />
     <ClInclude Include="include\system\types.h" />
+    <ClInclude Include="include\utility\aes.h" />
+    <ClInclude Include="include\utility\array.h" />
+    <ClInclude Include="include\utility\bignum.h" />
     <ClInclude Include="include\utility\buffer.h" />
     <ClInclude Include="include\utility\convert.h" />
+    <ClInclude Include="include\utility\debug.h" />
+    <ClInclude Include="include\utility\diffie_hellman.h" />
     <ClInclude Include="include\utility\geometry.h" />
     <ClInclude Include="include\utility\handler.h" />
     <ClInclude Include="include\utility\list.h" />
     <ClInclude Include="include\utility\math.h" />
     <ClInclude Include="include\utility\observer.h" />
+    <ClInclude Include="include\utility\ostream.h" />
+    <ClInclude Include="include\utility\poly1305.h" />
     <ClInclude Include="include\utility\predictor.h" />
+    <ClInclude Include="include\utility\random.h" />
     <ClInclude Include="src\main_traits.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\network\tstp\locator.cc" />
+    <ClCompile Include="src\network\tstp\manager.cc" />
+    <ClCompile Include="src\network\tstp\router.cc" />
+    <ClCompile Include="src\network\tstp\security.cc" />
+    <ClCompile Include="src\network\tstp\timekeeper.cc" />
+    <ClCompile Include="src\network\tstp\tstp.cc" />
     <ClCompile Include="src\network\tstp\tstp_init.cc" />
   </ItemGroup>
   <ItemGroup>

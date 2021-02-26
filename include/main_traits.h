@@ -106,8 +106,6 @@ template<> struct Traits<Thread> : public Traits<Build>
 	static const unsigned int QUANTUM = 10000; // us
 };
 
-class SmartData;
-
 template<> struct Traits<SmartData> : public Traits<Build>
 {
 	static const unsigned char PREDICTOR = NONE;

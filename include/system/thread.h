@@ -18,8 +18,12 @@ private:
 	Microsecond _period;
 
 public:
-	Periodic_Thread(const Microsecond&, int(*)(unsigned int, SmartData::Time, Responsive_SmartData<Dummy_Transducer>*),
-		unsigned int&, const SmartData::Time&, Responsive_SmartData<Dummy_Transducer>*);
+	Periodic_Thread(const Microsecond&, int(*callback)(unsigned int, SmartData::Time, Responsive_SmartData<Dummy_Transducer>*),
+		unsigned int&, const SmartData::Time&, Responsive_SmartData<Dummy_Transducer>*) : Thread::Thread(0)
+	{
+		// TCB - to be implemented.
+	}
+
 	const Microsecond& period() { return _period; }
 	void period(const Microsecond& p) { _period = p; }
 	static volatile bool wait_next() {
@@ -33,4 +37,6 @@ class Alarm
 {
 public:
 	Alarm(const Microsecond & time, Handler * handler, unsigned int times = 1);
+	static void delay(const Microsecond & time);
+	void reset();
 };

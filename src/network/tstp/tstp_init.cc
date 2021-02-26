@@ -68,6 +68,8 @@ TSTP::Locator::Locator()
     //    _engine.here(Space(bm->space_x, bm->space_y, bm->space_z));
     //    _engine.confidence(100);
     //} else {
+	
+	// TCB - usar valores diferentes para instâncias diferentes.
         _engine.here(Space(Space::UNKNOWN, Space::UNKNOWN, Space::UNKNOWN));
         _engine.confidence(0);
     //}

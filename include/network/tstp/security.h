@@ -18,6 +18,8 @@
 #include <utility/poly1305.h>
 #include <utility/diffie_hellman.h>
 #include <utility/array.h>
+#include <system/thread.h>
+#include <network/tstp/tstp.h>
 
 // __BEGIN_SYS
 

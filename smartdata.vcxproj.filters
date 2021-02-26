@@ -26,10 +26,28 @@
     <ClInclude Include="include\network\hecops.h" />
     <ClInclude Include="include\network\tstp\timekeeper.h" />
     <ClInclude Include="include\utility\handler.h" />
+    <ClInclude Include="include\utility\ostream.h" />
+    <ClInclude Include="include\utility\debug.h" />
+    <ClInclude Include="include\network\tstp\security.h" />
+    <ClInclude Include="include\machine\aes.h" />
+    <ClInclude Include="include\utility\aes.h" />
+    <ClInclude Include="include\utility\diffie_hellman.h" />
+    <ClInclude Include="include\utility\bignum.h" />
+    <ClInclude Include="include\utility\random.h" />
+    <ClInclude Include="include\utility\poly1305.h" />
+    <ClInclude Include="include\utility\array.h" />
+    <ClInclude Include="include\network\tstp\router.h" />
+    <ClInclude Include="include\network\tstp\manager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\network\tstp\tstp_init.cc" />
+    <ClCompile Include="src\network\tstp\locator.cc" />
+    <ClCompile Include="src\network\tstp\manager.cc" />
+    <ClCompile Include="src\network\tstp\router.cc" />
+    <ClCompile Include="src\network\tstp\security.cc" />
+    <ClCompile Include="src\network\tstp\timekeeper.cc" />
+    <ClCompile Include="src\network\tstp\tstp.cc" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMakeLists.txt" />
