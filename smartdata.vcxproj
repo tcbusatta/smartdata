@@ -143,6 +143,7 @@
     <ClInclude Include="include\system\thread.h" />
     <ClInclude Include="include\system\traits.h" />
     <ClInclude Include="include\system\types.h" />
+    <ClInclude Include="include\transducer.h" />
     <ClInclude Include="include\utility\aes.h" />
     <ClInclude Include="include\utility\array.h" />
     <ClInclude Include="include\utility\bignum.h" />
@@ -159,7 +160,6 @@
     <ClInclude Include="include\utility\poly1305.h" />
     <ClInclude Include="include\utility\predictor.h" />
     <ClInclude Include="include\utility\random.h" />
-    <ClInclude Include="src\main_traits.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
@@ -170,6 +170,10 @@
     <ClCompile Include="src\network\tstp\timekeeper.cc" />
     <ClCompile Include="src\network\tstp\tstp.cc" />
     <ClCompile Include="src\network\tstp\tstp_init.cc" />
+    <ClCompile Include="src\utility\aes.cc" />
+    <ClCompile Include="src\utility\bignum.cc" />
+    <ClCompile Include="src\utility\ostream.cc" />
+    <ClCompile Include="src\utility\random.cc" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMakeLists.txt" />

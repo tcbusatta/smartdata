@@ -1,9 +1,6 @@
-#ifndef __traits_types_h
-#define __traits_types_h
+#pragma once
 
 #include <system/meta.h>
-
-// __BEGIN_UTIL
 
 // Utilities
 template<unsigned int KEY_SIZE> class SWAES;
@@ -26,10 +23,6 @@ class SREC;
 class Vectors;
 class FANN;
 template<typename> class Scheduler;
-
-// __END_UTIL
-
-// __BEGIN_SYS
 
 // System parts
 class Build;
@@ -566,7 +559,3 @@ struct Traits {
 
     typedef ALIST<> ASPECTS;
 };
-
-// __END_SYS
-
-#endif

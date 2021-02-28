@@ -35,6 +35,10 @@ add_executable (smartdata
 	src/network/tstp/timekeeper.cc
 	src/network/tstp/tstp.cc
 	src/network/tstp/tstp_init.cc
+	src/utility/aes.cc
+	src/utility/bignum.cc
+	src/utility/ostream.cc
+	src/utility/random.cc
 )
 
 target_link_libraries (smartdata ${ADDITIONAL_LIBS} pthread rt) 

@@ -1,17 +1,14 @@
+#pragma once
+
 // EPOS OStream Interface
 
-// #include <system/config.h>
-
-#ifndef __ostream_h
-#define __ostream_h
+#include <stdio.h>
 
 extern "C" {
     void _print_preamble();
     void _print(const char * s);
     void _print_trailler(bool error);
 }
-
-// __BEGIN_UTIL
 
 class OStream
 {
@@ -149,7 +146,7 @@ public:
     }
 
 private:
-    void print(const char * s) { _print(s); }
+    void print(const char * s) { puts(s); }
 
     int itoa(int v, char * s);
     int utoa(unsigned int v, char * s, unsigned int i = 0);
@@ -171,10 +168,4 @@ constexpr OStream::Dec dec;
 constexpr OStream::Oct oct;
 constexpr OStream::Bin bin;
 
-// __END_UTIL
-
-// __BEGIN_SYS
 extern OStream kout, kerr;
-// __END_SYS
-
-#endif

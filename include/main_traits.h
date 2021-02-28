@@ -1,3 +1,4 @@
+#pragma once
 #include <system/traits.h>
 
 // Build

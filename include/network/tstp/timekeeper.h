@@ -1,9 +1,6 @@
+#pragma once
+
 // EPOS Trustful SpaceTime Protocol Timekeeper Declarations
-
-#ifndef __tstp_timekeeper_h
-#define __tstp_timekeeper_h
-
-// #include <system/config.h>
 
 #define __tstp__ 1
 
@@ -12,7 +9,6 @@
 #include <machine/nic.h>
 #include <utility/handler.h>
 
-// __BEGIN_SYS
 
 class TSTP::Timekeeper: private SmartData, private Data_Observer<Buffer>
 {
@@ -94,9 +90,5 @@ private:
     static Function_Handler * _life_keeper_handler;
     static Alarm * _life_keeper;
 };
-
-// __END_SYS
-
-#endif
 
 #endif

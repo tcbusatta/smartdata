@@ -1,17 +1,12 @@
-// EPOS Trustful SpaceTime Protocol Locator Declarations
+#pragma once
 
-// #include <system/config.h>
+// EPOS Trustful SpaceTime Protocol Locator Declarations
 
 #define __tstp__ 1
 
 #ifdef __tstp__
 
-#ifndef __tstp_locator_h
-#define __tstp_locator_h
-
 #include <network/hecops.h>
-
-// __BEGIN_SYS
 
 class TSTP::Locator: private SmartData, private Data_Observer<Buffer>
 {
@@ -41,9 +36,5 @@ private:
     static Global_Space _reference;
     static Engine _engine;
 };
-
-// __END_SYS
-
-#endif
 
 #endif

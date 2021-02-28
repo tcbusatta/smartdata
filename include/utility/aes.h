@@ -1,14 +1,12 @@
+#pragma once
+
 // EPOS AES Utility Declarations
 
-#ifndef __util_aes_h
-#define __util_aes_h
-
-// #include <utility/string.h>
+#include <utility/debug.h>
 #define __aes_common_only__
 #include <machine/aes.h>
 #undef __aes_common_only__
-
-// __BEGIN_UTIL
+#include <memory.h>
 
 // EPOS 128-bit Advanced Encryption Standard (AES) Software Implementation
 // Adapted from https://github.com/kokke/tiny-AES128-C
@@ -119,6 +117,3 @@ private:
     static const unsigned char rcon[255];
 };
 
-// __END_UTIL
-
-#endif

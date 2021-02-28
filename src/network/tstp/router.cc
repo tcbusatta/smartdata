@@ -8,11 +8,8 @@
 
 #include <main_traits.h>
 #include <utility/math.h>
-// #include <utility/string.h>
 #include <machine/nic.h>
 #include <network/tstp/tstp.h>
-
-// __BEGIN_SYS
 
 TSTP::Router::~Router()
 {
@@ -151,7 +148,5 @@ TSTP::Region TSTP::Router::destination(Buffer * buf)
             return Region(here(), 0, now() - 2, now() - 1);
     }
 }
-
-// __END_SYS
 
 #endif

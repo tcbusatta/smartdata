@@ -1,12 +1,8 @@
+#pragma once
+
 // EPOS Array Utility Declarations
 
-#ifndef __array_h
-#define __array_h
-
 #include <utility/ostream.h>
-// #include <utility/string.h>
-
-// __BEGIN_UTIL
 
 template<typename T, unsigned int N>
 class Array
@@ -74,7 +70,3 @@ class Array<T, 0> {
 public:
     static constexpr unsigned int length() { return 0; };
 };
-
-// __END_UTIL
-
-#endif

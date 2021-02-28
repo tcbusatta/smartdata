@@ -1,12 +1,9 @@
-// EPOS IA32 CPU Mediator Declarations
+#pragma once
 
-#ifndef __ia32_h
-#define __ia32_h
+// EPOS IA32 CPU Mediator Declarations
 
 #include <architecture/cpu.h>
 #include <utility/debug.h>
-
-// __BEGIN_SYS
 
 class CPU: private CPU_Common
 {
@@ -700,7 +697,3 @@ inline CPU::Reg32 htonl(CPU::Reg32 v) { return CPU::htonl(v); }
 inline CPU::Reg16 htons(CPU::Reg16 v) { return CPU::htons(v); }
 inline CPU::Reg32 ntohl(CPU::Reg32 v) { return CPU::ntohl(v); }
 inline CPU::Reg16 ntohs(CPU::Reg16 v) { return CPU::ntohs(v); }
-
-// __END_SYS
-
-#endif

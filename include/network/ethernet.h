@@ -1,7 +1,6 @@
-// EPOS Ethernet Mediator Common Package
+#pragma once
 
-#ifndef __ethernet_h
-#define __ethernet_h
+// EPOS Ethernet Mediator Common Package
 
 #include <architecture/cpu.h>
 #define __nic_common_only__
@@ -10,8 +9,6 @@
 #include <utility/list.h>
 #include <utility/observer.h>
 #include <utility/buffer.h>
-
-// __BEGIN_SYS
 
 class Ethernet: public NIC_Common
 {
@@ -152,7 +149,3 @@ public:
     static const unsigned int mtu() { return MTU; }
     static const Address broadcast() { return Address::BROADCAST; }
 };
-
-// __END_SYS
-
-#endif

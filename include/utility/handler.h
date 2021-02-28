@@ -1,11 +1,6 @@
+#pragma once
+
 // EPOS Handler Utility Declarations
-
-#ifndef __handler_h
-#define __handler_h
-
-// #include <system/config.h>
-
-// __BEGIN_UTIL
 
 class Handler
 {
@@ -48,7 +43,3 @@ private:
     Functor * _handler;
     T * _ptr;
 };
-
-// __END_UTIL
-
-#endif

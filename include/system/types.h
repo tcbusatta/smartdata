@@ -1,11 +1,8 @@
+#pragma once
+
 // EPOS Common Types and Type Management System
 
 typedef __SIZE_TYPE__ size_t;
-
-#ifndef __types_h
-#define __types_h
-
-// __BEGIN_API
 
 // Memory allocators
 enum System_Allocator { SYSTEM };
@@ -239,7 +236,3 @@ enum
 //template<> struct Type<Utility> { static const Type_Id ID = UTILITY_ID; };
 //
 //// Type IDs for system components whose parameters are themselves components are defined where they are declared.
-
-// __END_SYS
-
-#endif

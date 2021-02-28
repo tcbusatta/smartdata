@@ -10,13 +10,13 @@
 
 #ifdef __tstp__
 
-// __BEGIN_SYS
-
 TSTP::Time TSTP::Timekeeper::_reference;
 TSTP::Time TSTP::Timekeeper::_skew;
 volatile TSTP::Time TSTP::Timekeeper::_next_sync;
 Function_Handler * TSTP::Timekeeper::_life_keeper_handler;
 Alarm * TSTP::Timekeeper::_life_keeper;
+
+const unsigned int TSTP::Timekeeper::MAX_DRIFT;
 
 
 TSTP::Timekeeper::~Timekeeper()
@@ -84,7 +84,5 @@ void TSTP::Timekeeper::keep_alive()
     buf->frame()->data<Header>()->time_request(true);
     TSTP::send(buf);
 }
-
-// __END_SYS
 
 #endif

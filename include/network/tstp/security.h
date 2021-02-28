@@ -1,9 +1,6 @@
+#pragma once
+
 // EPOS Trustful SpaceTime Protocol Security Declarations
-
-#ifndef __tstp_security_h
-#define __tstp_security_h
-
-// #include <system/config.h>
 
 #define __tstp__ 1
 
@@ -13,15 +10,11 @@
 #define __nic_common_only__
 #include <machine/nic.h>
 #undef __nic_common_only__
-//#include <process.h>
-//#include <time.h>
 #include <utility/poly1305.h>
 #include <utility/diffie_hellman.h>
 #include <utility/array.h>
 #include <system/thread.h>
 #include <network/tstp/tstp.h>
-
-// __BEGIN_SYS
 
 
 class TSTP::Security: private SmartData, private Data_Observer<Buffer>
@@ -282,9 +275,5 @@ private:
     static _AES & _cipher;
     static _DH _dh;
 };
-
-// __END_SYS
-
-#endif
 
 #endif

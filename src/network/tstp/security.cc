@@ -2,15 +2,12 @@
 
 #include <main_traits.h>
 #include <utility/math.h>
-// #include <utility/string.h>
 #include <machine/nic.h>
 #include <network/tstp/tstp.h>
 
 #define __tstp__ 1
 
 #ifdef __tstp__
-
-// __BEGIN_SYS
 
 // Class attributes
 TSTP::Security::_AES TSTP::Security::_aes;
@@ -24,6 +21,8 @@ TSTP::Security::Peers TSTP::Security::_trusted_peers;
 volatile bool TSTP::Security::_peers_lock;
 Thread * TSTP::Security::_key_manager;
 unsigned int TSTP::Security::_dh_requests_open;
+const SmartData::Time::Type TSTP::Security::KEY_MANAGER_PERIOD;
+const SmartData::Time::Type TSTP::Security::KEY_EXPIRY;
 
 // Methods
 TSTP::Security::~Security()
@@ -505,7 +504,5 @@ int TSTP::Security::key_manager()
 
     return 0;
 }
-
-// __END_SYS
 
 #endif

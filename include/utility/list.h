@@ -1,11 +1,6 @@
+#pragma once
+
 // EPOS List Utility Declarations
-
-#ifndef __list_h
-#define __list_h
-
-//#include <system/config.h>
-
-// __BEGIN_UTIL
 
 // List Element Rank (for ordered lists)
 class List_Element_Rank
@@ -1402,7 +1397,3 @@ private:
 private:
     unsigned int _grouped_size;
 };
-
-// __END_UTIL
-
-#endif

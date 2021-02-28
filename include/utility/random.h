@@ -1,3 +1,5 @@
+#pragma once
+
 // EPOS Pseudo Random Number Generator Utility Declarations
 
 // From http://en.wikipedia.org/wiki/Linear_congruential_generator
@@ -5,12 +7,6 @@
 // X1 = aX0 + c
 // as X1 = (X0 << 1) xor C
 
-#ifndef __random_h
-#define __random_h
-
-// #include <system/config.h>
-
-// __BEGIN_UTIL
 
 class Random
 {
@@ -32,7 +28,3 @@ public:
 private:
     static int _seed;
 };
-
-// __END_UTIL
-
-#endif

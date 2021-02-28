@@ -1,11 +1,9 @@
+#pragma once
+
 // EPOS (Litte-endian) Big Numbers Utility Declarations
 
-#ifndef __bignum_h
-#define __bignum_h
-
 #include <utility/random.h>
-
-// __BEGIN_UTIL
+#include <utility/debug.h>
 
 // This class implements a prime finite field (Fp or GF(p))
 // It basically consists of (possibly) big numbers between 0 and a prime modulo, with + - * / operators
@@ -403,7 +401,3 @@ private:
     static const _Word _mod;
     static const _Barrett _barrett_u;
 };
-
-// __END_UTIL
-
-#endif

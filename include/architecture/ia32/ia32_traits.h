@@ -1,11 +1,6 @@
+#pragma once
+
 // EPOS IA32 Architecture Metainfo
-
-#ifndef __ia32_traits_h
-#define __ia32_traits_h
-
-// #include <system/config.h>
-
-// __BEGIN_SYS
 
 template<> struct Traits<CPU>: public Traits<Build>
 {
@@ -37,7 +32,3 @@ template<> struct Traits<PMU>: public Traits<Build>
     enum { V1, V2, V3, DUO, MICRO, ATOM, SANDY_BRIDGE };
     static const unsigned int VERSION = SANDY_BRIDGE;
 };
-
-// __END_SYS
-
-#endif

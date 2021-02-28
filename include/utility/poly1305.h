@@ -1,13 +1,9 @@
+#pragma once
+
 // EPOS Poly1305-AES Message Authentication Code Component Declarations
 
-#ifndef __poly1305_h
-#define __poly1305_h
-
-// #include <utility/string.h>
 #include <utility/bignum.h>
 #include <utility/math.h>
-
-// __BEGIN_UTIL
 
 template<typename Cipher>
 class Poly1305
@@ -67,7 +63,3 @@ private:
     Bignum _k;
     Bignum _r;
 };
-
-// __END_UTIL
-
-#endif

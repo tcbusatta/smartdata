@@ -1,11 +1,8 @@
+#pragma once
+
 // EPOS Heuristic Cooperative Positioning System Declarations
 
-#ifndef __hecops_h
-#define __hecops_h
-
 #include <smartdata.h>
-
-// __BEGIN_SYS
 
 template<typename Space, unsigned int PEERS>
 class HeCoPS
@@ -90,8 +87,3 @@ private:
     unsigned int _n_peers;
     Peer _peers[PEERS];
 };
-
-// __END_SYS
-
-#endif
-

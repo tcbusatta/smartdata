@@ -1,11 +1,8 @@
+#pragma once
+
 // EPOS Debug Utility Declarations
 
 #include <utility/ostream.h>
-
-#ifndef __debug_h
-#define __debug_h
-
-// __BEGIN_UTIL
 
 class Debug
 {
@@ -119,8 +116,3 @@ public:
         db<Build>(ERR) << "Assertion fail: " << __assertion << ", function=" << __function << ", file=" << __file << ", line=" << __line << endl;
     }
 };
-
-// __END_UTIL
-
-#endif
-

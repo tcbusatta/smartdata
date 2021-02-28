@@ -1,12 +1,9 @@
-// EPOS Predictor Declarations
+#pragma once
 
-#ifndef __predictor_h
-#define __predictor_h
+// EPOS Predictor Declarations
 
 #include <utility/math.h>
 #include <utility/buffer.h>
-
-// __BEGIN_UTIL
 
 class Predictor_Common
 {
@@ -467,7 +464,3 @@ struct Select_Predictor<Predictor_Common::DBP>
     template<typename Time, typename Value>
     using Predictor = DBP<Time, Value>;
 };
-
-// __END_UTIL
-
-#endif

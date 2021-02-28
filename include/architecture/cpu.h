@@ -1,12 +1,8 @@
+#pragma once
+
 // EPOS CPU Mediator Common Package
 
-#ifndef __cpu_h
-#define __cpu_h
-
-// #include <system/config.h>
 #include <utility/ostream.h>
-
-// __BEGIN_SYS
 
 class CPU_Common
 {
@@ -178,10 +174,6 @@ template<typename T>
 inline T align64(const T & addr) { return (addr + 7) & ~7U; }
 template<typename T>
 inline T align128(const T & addr) { return (addr + 15) & ~15U; }
-
-// __END_SYS
-
-#endif
 
 #if defined(__CPU_H) && !defined(__cpu_common_only__)
 #include __CPU_H

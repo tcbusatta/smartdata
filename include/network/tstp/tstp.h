@@ -1,23 +1,17 @@
+#pragma once
+
 // EPOS Trustful SpaceTime Protocol Declarations
 
-// #include <system/config.h>
 #define __tstp__ 1
 
 #if !defined (__tstp_common_h) && defined (__tstp__)
 #define __tstp_common_h
 
-//#include <network/ethernet.h>
-//#include <network/ieee802_15_4.h>
 #define __nic_common_only__
 #include <machine/nic.h>
 #undef __nic_common_only__
 #include <smartdata.h>
-//#include <utility/hash.h>
-//#include <utility/string.h>
-//#include <utility/array.h>
 #include <utility/convert.h>
-
-// __BEGIN_SYS
 
 class TSTP: private Traits<TSTP>::NIC_Family, private SmartData, private NIC<Traits<TSTP>::NIC_Family>::Observer
 {
@@ -155,21 +149,16 @@ private:
     static Data_Observed<Buffer, Unit> _clients;
 };
 
-// __END_SYS
-
 #endif
 
 #if !defined (__tstp_h) && !defined (__tstp_common_only__) && defined (__tstp__)
 #define __tstp_h
 
-//#include "mac.h"
 #include <network/tstp/security.h>
 #include <network/tstp/locator.h>
 #include <network/tstp/timekeeper.h>
 #include <network/tstp/router.h>
 #include <network/tstp/manager.h>
-
-// __BEGIN_SYS
 
 inline TSTP::~TSTP() { db<TSTP>(TRC) << "TSTP::~TSTP()" << endl; _nic->detach(this, 0); }
 inline TSTP::Buffer * TSTP::alloc(unsigned int size) { return _nic->alloc(Address::BROADCAST, PROTO_TSTP, 0, 0, size); }
@@ -183,6 +172,5 @@ inline TSTP::Time TSTP::now() { return Timekeeper::now(); }
 inline TSTP::Time TSTP::relative(const TSTP::Time & t) { return TSTP::_timekeeper->relative(t); }
 inline TSTP::Time TSTP::absolute(const TSTP::Time & t) { return t ? TSTP::_timekeeper->relative(t) : t; }
 
-// __END_SYS
 
 #endif

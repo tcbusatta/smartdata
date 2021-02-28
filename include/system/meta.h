@@ -1,9 +1,6 @@
+#pragma once
+
 // EPOS Basic Metaprograms
-
-#ifndef __meta_h
-#define __meta_h
-
-// __BEGIN_SYS
 
 // Native type wrapper (POD)
 template <typename T1>
@@ -368,7 +365,3 @@ template<> struct LARGER<unsigned char> { typedef unsigned short Result; };
 template<> struct LARGER<unsigned short> { typedef unsigned int Result; };
 template<> struct LARGER<unsigned int> { typedef unsigned long long Result; };
 template<> struct LARGER<unsigned long> { typedef unsigned long long Result; };
-
-// __END_SYS
-
-#endif

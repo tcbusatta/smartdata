@@ -1,20 +1,15 @@
+#pragma once
+
 // EPOS SmartData Declarations
 //
 // Smart Data encapsulates Transducers (i.e. sensors and actuators), local or remote, and bridges them with Network
 // Transducers must be Observed objects, must implement either sense() or actuate(), and must define UNIT, NUM, and UNCERTAINTY.
 
-#ifndef __smartdata_common_h
-#define __smartdata_common_h
-
 #include <system/meta.h>
 #include <system/types.h>
 #include <utility/geometry.h>
 #include <utility/observer.h>
-//#include <utility/hash.h>
 #include <utility/predictor.h>
-//#include <utility/math.h>
-
-// __BEGIN_SYS
 
 class SmartData
 {
@@ -897,19 +892,11 @@ template<> inline SmartData::_Space<SmartData::CM_32>::operator    SmartData::_S
 template<> inline SmartData::_Space<SmartData::CM_16>::operator    SmartData::_Space<CMx50_8>() const { return _Space<CMx50_8>(Point<Number, 3>::x / 50, Point<Number, 3>::y / 50, Point<Number, 3>::z / 50); }
 template<> inline SmartData::_Space<SmartData::CMx25_16>::operator SmartData::_Space<CMx50_8>() const { return _Space<CMx50_8>(Point<Number, 3>::x /  2, Point<Number, 3>::y /  2, Point<Number, 3>::z /  2); }
 
-// __END_SYS
-
-#endif
-
 #if !defined(__smartdata_h) && !defined(__smartdata_common_only__)
 #define __smartdata_h
 
 #include <time.h>
-//#include <real-time.h>
-
-// __BEGIN_SYS
-
-// #include <network/tstp/tstp.h>
+#include <network/tstp/tstp.h>
 #include <system/thread.h>
 
 // Local data source, possibly advertised to or commanded through the network
@@ -1493,8 +1480,6 @@ typename Responsive_SmartData<Transducer, Network>::Responsives Responsive_Smart
 
 template<typename Unit, typename Network>
 typename Interested_SmartData<Unit, Network>::Interests Interested_SmartData<Unit, Network>::_interests;
-
-//__END_SYS
 
 #include <transducer.h>
 

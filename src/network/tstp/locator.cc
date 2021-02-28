@@ -1,15 +1,11 @@
 // EPOS Trustful Space-Time Protocol Locator Implementation
 
-// #include <system/config.h>
-
 #define __tstp__ 1
 
 #ifdef __tstp__
 
 #include <main_traits.h>
 #include <network/tstp/tstp.h>
-
-// __BEGIN_SYS
 
 // Class attributes
 TSTP::Global_Space TSTP::Locator::_reference;
@@ -65,7 +61,5 @@ void TSTP::Locator::marshal(Buffer * buf)
     buf->frame()->data<Header>()->last_hop(here());
     buf->frame()->data<Header>()->last_hop(now());
 }
-
-// __END_SYS
 
 #endif

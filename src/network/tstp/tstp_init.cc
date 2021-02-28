@@ -1,7 +1,5 @@
 // EPOS Trustful SpaceTime Protocol Initialization
 
-// #include <system/config.h>
-
 #define __tstp__ 1
 
 #ifdef __tstp__
@@ -9,10 +7,6 @@
 #include <main_traits.h>
 #include <machine/nic.h>
 #include <network/tstp/tstp.h>
-//#include <system.h>
-//#include <time.h>
-
-// __BEGIN_SYS
 
 TSTP::TSTP(NIC<NIC_Family> * nic)
 {
@@ -70,7 +64,7 @@ TSTP::Locator::Locator()
     //} else {
 	
 	// TCB - usar valores diferentes para instâncias diferentes.
-        _engine.here(Space(Space::UNKNOWN, Space::UNKNOWN, Space::UNKNOWN));
+        _engine.here(Space(0, 0, 0));
         _engine.confidence(0);
     //}
 
@@ -130,7 +124,7 @@ void TSTP::init()
 {
     db<Init, TSTP>(TRC) << "TSTP::init()" << endl;
 
-	// Criar socket aqui. Derivar da NIC.
+	// TCB - Criar socket aqui. Derivar da NIC.
 
 	// Isso não vale mais...
     // NIC<NIC_Family> * nic = Traits<NIC_Family>::DEVICES::Get<Traits<TSTP>::NICS[0]>::Result::get(Traits<TSTP>::NICS[0]);
@@ -152,7 +146,5 @@ void TSTP::init()
 //TSTP::MAC<Engine, false> TSTP::MAC<Engine, false>::instance() {
 //    return _instance;
 //}
-
-// __END_SYS
 
 #endif

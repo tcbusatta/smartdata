@@ -1,15 +1,12 @@
-// EPOS Network Interface Mediator Common Package
+#pragma once
 
-#ifndef __nic_h
-#define __nic_h
+// EPOS Network Interface Mediator Common Package
 
 #include <architecture/ia32/ia32_cpu.h>
 #include <architecture/ia32/ia32_tsc.h>
 #include <string.h>
 #include <stdlib.h>
 #include <assert.h>
-
-// __BEGIN_SYS
 
 #undef NULL
 
@@ -293,10 +290,6 @@ public:
 
     virtual const Statistics & statistics() = 0;
 };
-
-// __END_SYS
-
-#endif
 
 #if defined (__NIC_H) && !defined(__nic_common_only__)
 #include __NIC_H

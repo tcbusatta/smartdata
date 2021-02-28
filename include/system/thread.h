@@ -1,14 +1,16 @@
 #pragma once
-
 #include <system/types.h>
 
 class Thread
 {
 public:
-	Thread(int (*)()) { }
+	Thread(int (*)())
+	{
+		// TCB - to be implemented.
+	}
 	static void yield()
 	{
-		// To be implemented.
+		// TCB - to be implemented.
 	}
 };
 
@@ -36,7 +38,16 @@ public:
 class Alarm
 {
 public:
-	Alarm(const Microsecond & time, Handler * handler, unsigned int times = 1);
-	static void delay(const Microsecond & time);
-	void reset();
+	Alarm(const Microsecond & time, Handler * handler, unsigned int times = 1)
+	{
+		// TCB - to be implemented.
+	}
+	static void delay(const Microsecond & time)
+	{
+		// TCB - to be implemented.
+	}
+	void reset()
+	{
+		// TCB - to be implemented.
+	}
 };

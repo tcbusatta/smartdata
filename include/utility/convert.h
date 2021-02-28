@@ -1,11 +1,8 @@
+#pragma once
+
 // EPOS Conversion Utility Declarations
 
-#ifndef __convert_h
-#define __convert_h
-
 #include <utility/math.h>
-
-// __BEGIN_UTIL
 
 namespace Convert
 {
@@ -34,7 +31,3 @@ inline Time count2ms(const Hertz & frequency, const Count & count) { return (sta
 template<typename Hertz, typename Count, typename Time, typename Temporary = typename LARGER<Time>::Result>
 inline Time count2us(const Hertz & frequency, const Count & count) { return (static_cast<Temporary>(count) / (frequency / 1000000)); }
 };
-
-// __END_UTIL
-
-#endif

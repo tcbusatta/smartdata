@@ -1,11 +1,8 @@
+#pragma once
+
 // EPOS Smart Transducer Declarations
 
-#ifndef __tranducer_h
-#define __tranducer_h
-
 #include <smartdata.h>
-
-// __BEGIN_SYS
 
 #define _UTIL
 
@@ -56,8 +53,6 @@ private:
     Value _value;
 };
 
-// __END_SYS
-
 #ifdef __ACCELEROMETER_H
 #include __ACCELEROMETER_H
 #endif
@@ -98,8 +93,6 @@ private:
 #include __ENCODER_SENSOR_H
 #endif
 
-
-// __BEGIN_SYS
 
 using Antigravity = Responsive_SmartData<Dummy_Transducer>;
 using Antigravity_Proxy = Interested_SmartData<Dummy_Transducer::Unit::Wrap<Dummy_Transducer::UNIT>>;
@@ -152,8 +145,4 @@ using Encoder_Proxy = Interested_SmartData<Encoder_Sensor::Unit::Wrap<Encoder_Se
 #ifdef __THERMISTOR_SENSOR_H
 using Thermistor = Responsive_SmartData<Thermistor_Sensor>;
 using Thermistor_Proxy = Interested_SmartData<Thermistor_Sensor::Unit::Wrap<Thermistor_Sensor::UNIT>>;
-#endif
-
-// __END_SYS
-
 #endif

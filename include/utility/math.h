@@ -1,11 +1,6 @@
+#pragma once
+
 // EPOS Math Utility Declarations
-
-#ifndef __math_h
-#define __math_h
-
-// #include <system/config.h>
-
-// __BEGIN_UTIL
 
 namespace Math
 {
@@ -267,7 +262,3 @@ inline T1 lcm(T1 a, T2 b)
 }
 
 }
-
-// __END_UTIL
-
-#endif

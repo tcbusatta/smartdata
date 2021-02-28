@@ -1,15 +1,11 @@
+#pragma once
+
 // EPOS Trustful SpaceTime Protocol Manager Declarations
-
-#ifndef __tstp_Manager_h
-#define __tstp_Manager_h
-
-// #include <system/config.h>
 
 #define __tstp__ 1
 
 #ifdef __tstp__
 
-// __BEGIN_SYS
 
 class TSTP::Manager: private SmartData, private Data_Observer<Buffer>
 {
@@ -95,9 +91,5 @@ private:
 
     static void marshal(Buffer * buf);
 };
-
-// __END_SYS
-
-#endif
 
 #endif

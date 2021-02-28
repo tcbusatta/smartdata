@@ -1,12 +1,8 @@
+#pragma once
+
 // EPOS Buffer Declarations
 
-#ifndef __buffer_h
-#define __buffer_h
-
-//#include <architecture.h>
 #include <assert.h>
-
-// __BEGIN_UTIL
 
 // This Buffer was designed to move data across a zero-copy communication stack, but can be used for several other purposes
 template<typename Owner, typename Data, typename Shadow = void, typename _Metadata = Dummy>
@@ -157,6 +153,3 @@ private:
     unsigned int _tail;
     T _data[N_ELEMENTS];
 };
-// __END_UTIL
-
-#endif

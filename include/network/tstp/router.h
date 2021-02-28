@@ -1,17 +1,12 @@
+#pragma once
+
 // EPOS Trustful SpaceTime Protocol Router Declarations
-
-#ifndef __tstp_router_h
-#define __tstp_router_h
-
-// #include <system/config.h>
 
 #define __tstp__ 1
 
 #ifdef __tstp__
 
 #include <smartdata.h>
-
-// __BEGIN_SYS
 
 class TSTP::Router: private SmartData, private Data_Observer<Buffer>
 {
@@ -82,9 +77,5 @@ private:
 
     static void marshal(Buffer * buf);
 };
-
-// __END_SYS
-
-#endif
 
 #endif

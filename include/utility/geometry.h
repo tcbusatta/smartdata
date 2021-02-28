@@ -1,12 +1,9 @@
-// EPOS Geometry Utility Declarations
+#pragma once
 
-#ifndef __geometry_h
-#define __geometry_h
+// EPOS Geometry Utility Declarations
 
 #include <utility/math.h>
 #include <utility/debug.h>
-
-// __BEGIN_UTIL
 
 template<typename T, unsigned int dimensions>
 struct Point;
@@ -209,7 +206,3 @@ public:
     Center center;
     Radius radius;
 }__attribute__((packed));
-
-// __END_UTIL
-
-#endif

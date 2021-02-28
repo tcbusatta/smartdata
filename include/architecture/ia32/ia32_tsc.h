@@ -1,13 +1,10 @@
-// EPOS IA32 Time-Stamp Counter Mediator Declarations
+#pragma once
 
-#ifndef __ia32_tsc_h
-#define __ia32_tsc_h
+// EPOS IA32 Time-Stamp Counter Mediator Declarations
 
 #include <architecture/cpu.h>
 #include <architecture/tsc.h>
 #include <system/types.h>
-
-// __BEGIN_SYS
 
 class TSC: private TSC_Common
 {
@@ -30,7 +27,3 @@ public:
         CPU::wrmsr(CPU::MSR_TSC, ts);
     }
 };
-
-// __END_SYS
-
-#endif

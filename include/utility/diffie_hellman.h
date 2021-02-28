@@ -1,12 +1,8 @@
+#pragma once
+
 // EPOS Elliptic Curve Diffie-Hellman (ECDH) Component Declarations
 
-#ifndef __diffie_hellman_h
-#define __diffie_hellman_h
-
-// #include <system/config.h>
 #include <utility/bignum.h>
-
-// __BEGIN_UTIL
 
 template<typename Cipher>
 class Diffie_Hellman
@@ -233,9 +229,3 @@ void Diffie_Hellman<Cipher>::Elliptic_Curve_Point::add_jacobian_affine(const Ell
 
     x = X; y = Y;
 }
-
-
-
-// __END_UTIL
-
-#endif

@@ -1,3 +1,5 @@
+#pragma once
+
 // EPOS Observer Utility Declarations
 
 // Observation about the lack of virtual destructors in the following classes:
@@ -7,12 +9,7 @@
 // declare them as non-virtual. But it must be clear that this is one of the few uses
 // for them.
 
-#ifndef __observer_h
-#define	__observer_h
-
 #include <utility/list.h>
-
-// __BEGIN_UTIL
 
 // Observer x Observed
 class Observer;
@@ -366,7 +363,3 @@ public:
 private:
     typename Data_Observed<D, void>::Element _link;
 };
-
-// __END_UTIL
-
-#endif
