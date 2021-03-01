@@ -146,7 +146,7 @@ public:
     }
 
 private:
-    void print(const char * s) { puts(s); }
+    void print(const char * s) { printf("%s", s); }
 
     int itoa(int v, char * s);
     int utoa(unsigned int v, char * s, unsigned int i = 0);

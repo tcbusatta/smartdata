@@ -8,6 +8,8 @@ int main(void)
 {
 	printf("Hello world!\n");
 
+	TSTP::init();
+
 	Antigravity a(0, 1000000, SmartData::ADVERTISED);
 
 	return 0;

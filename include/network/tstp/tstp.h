@@ -135,6 +135,7 @@ private:
 
     static void marshal(Buffer * buf);
 
+public:
     static void init();
 
 private:

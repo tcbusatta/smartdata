@@ -23,7 +23,7 @@ include_directories (
 	$(SMARTDATA_SOURCE_DIR)include
 )
 
-set(CMAKE_CXX_FLAGS_DEBUG "-m32 -Wall -O0 -pg -Wfatal-errors")
+set(CMAKE_CXX_FLAGS_DEBUG "-m32 -Wall -O0 -pg -ggdb -Wfatal-errors")
 set(CMAKE_CXX_FLAGS_RELEASE "-m32 -Wall -O3 -Wfatal-errors -Wuninitialized -fno-strict-aliasing -fomit-frame-pointer")
 
 add_executable (smartdata

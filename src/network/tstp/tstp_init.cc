@@ -5,7 +5,7 @@
 #ifdef __tstp__
 
 #include <main_traits.h>
-#include <machine/nic.h>
+#include <machine/udpnic.h>
 #include <network/tstp/tstp.h>
 
 TSTP::TSTP(NIC<NIC_Family> * nic)
@@ -126,9 +126,11 @@ void TSTP::init()
 
 	// TCB - Criar socket aqui. Derivar da NIC.
 
+	NIC<NIC_Family>* nic = new UDPNIC();
+
 	// Isso não vale mais...
     // NIC<NIC_Family> * nic = Traits<NIC_Family>::DEVICES::Get<Traits<TSTP>::NICS[0]>::Result::get(Traits<TSTP>::NICS[0]);
-    // new (SYSTEM) TSTP(nic);
+    new /*(SYSTEM)*/ TSTP(nic);
 }
 
 //template <typename Engine>
