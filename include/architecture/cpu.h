@@ -7,7 +7,7 @@
 class CPU_Common
 {
 protected:
-    static const bool BIG_ENDIAN = (Traits<CPU>::ENDIANESS == Traits<CPU>::BIG);
+    static const bool _BIG_ENDIAN = (Traits<CPU>::ENDIANESS == Traits<CPU>::BIG);
 
 protected:
     CPU_Common() {}
@@ -129,22 +129,22 @@ public:
         }
     }
 
-    static Reg64 htole64(Reg64 v) { return (BIG_ENDIAN) ? swap64(v) : v; }
-    static Reg32 htole32(Reg32 v) { return (BIG_ENDIAN) ? swap32(v) : v; }
-    static Reg16 htole16(Reg16 v) { return (BIG_ENDIAN) ? swap16(v) : v; }
-    static Reg64 letoh64(Reg64 v) { return htole64(v); }
+    static Reg64 _htole64(Reg64 v) { return (_BIG_ENDIAN) ? swap64(v) : v; }
+    static Reg32 htole32(Reg32 v) { return (_BIG_ENDIAN) ? swap32(v) : v; }
+    static Reg16 _htole16(Reg16 v) { return (_BIG_ENDIAN) ? swap16(v) : v; }
+    static Reg64 letoh64(Reg64 v) { return _htole64(v); }
     static Reg32 letoh32(Reg32 v) { return htole32(v); }
-    static Reg16 letoh16(Reg16 v) { return htole16(v); }
+    static Reg16 letoh16(Reg16 v) { return _htole16(v); }
 
-    static Reg64 htobe64(Reg64 v) { return (!BIG_ENDIAN) ? swap64(v) : v; }
-    static Reg32 htobe32(Reg32 v) { return (!BIG_ENDIAN) ? swap32(v) : v; }
-    static Reg16 htobe16(Reg16 v) { return (!BIG_ENDIAN) ? swap16(v) : v; }
-    static Reg64 betoh64(Reg64 v) { return htobe64(v); }
+    static Reg64 _htobe64(Reg64 v) { return (!_BIG_ENDIAN) ? swap64(v) : v; }
+    static Reg32 htobe32(Reg32 v) { return (!_BIG_ENDIAN) ? swap32(v) : v; }
+    static Reg16 _htobe16_(Reg16 v) { return (!_BIG_ENDIAN) ? swap16(v) : v; }
+    static Reg64 betoh64(Reg64 v) { return _htobe64(v); }
     static Reg32 betoh32(Reg32 v) { return htobe32(v); }
-    static Reg16 betoh16(Reg16 v) { return htobe16(v); }
+    static Reg16 betoh16(Reg16 v) { return _htobe16_(v); }
 
-    static Reg32 htonl(Reg32 v) { return (BIG_ENDIAN) ? v : swap32(v); }
-    static Reg16 htons(Reg16 v) { return (BIG_ENDIAN) ? v : swap16(v); }
+    static Reg32 htonl(Reg32 v) { return (_BIG_ENDIAN) ? v : swap32(v); }
+    static Reg16 htons(Reg16 v) { return (_BIG_ENDIAN) ? v : swap16(v); }
     static Reg32 ntohl(Reg32 v) { return htonl(v); }
     static Reg16 ntohs(Reg16 v) { return htons(v); }
 

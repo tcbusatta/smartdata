@@ -38,6 +38,7 @@
     <ClInclude Include="include\network\tstp\router.h" />
     <ClInclude Include="include\network\tstp\manager.h" />
     <ClInclude Include="include\transducer.h" />
+    <ClInclude Include="include\machine\udpnic.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
@@ -52,6 +53,7 @@
     <ClCompile Include="src\utility\random.cc" />
     <ClCompile Include="src\utility\aes.cc" />
     <ClCompile Include="src\utility\bignum.cc" />
+    <ClCompile Include="src\machine\udpnic.cc" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMakeLists.txt" />

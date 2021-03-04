@@ -408,19 +408,19 @@ public:
 
     static void smp_barrier(unsigned long cores = cores()) { CPU_Common::smp_barrier<&finc>(cores, id()); }
 
-    static Reg64 htole64(Reg64 v) { return v; }
+    static Reg64 _htole64(Reg64 v) { return v; }
     static Reg32 htole32(Reg32 v) { return v; }
-    static Reg16 htole16(Reg16 v) { return v; }
+    static Reg16 _htole16(Reg16 v) { return v; }
     static Reg64 letoh64(Reg64 v) { return v; }
     static Reg32 letoh32(Reg32 v) { return v; }
     static Reg16 letoh16(Reg16 v) { return v; }
 
-    static Reg64 htobe64(Reg64 v) { asm("bswap %0" : "=r"(v) : "0"(v), "r"(v)); return v; }
+    static Reg64 _htobe64(Reg64 v) { asm("bswap %0" : "=r"(v) : "0"(v), "r"(v)); return v; }
     static Reg32 htobe32(Reg32 v) { asm("bswap %0" : "=r"(v) : "0"(v), "r"(v)); return v; }
-    static Reg16 htobe16(Reg16 v) { return swap16(v); }
-    static Reg64 betoh64(Reg64 v) { return htobe64(v); }
+    static Reg16 _htobe16(Reg16 v) { return swap16(v); }
+    static Reg64 betoh64(Reg64 v) { return _htobe64(v); }
     static Reg32 betoh32(Reg32 v) { return htobe32(v); }
-    static Reg16 betoh16(Reg16 v) { return htobe16(v); }
+    static Reg16 betoh16(Reg16 v) { return _htobe16(v); }
 
     static Reg32 htonl(Reg32 v) { asm("bswap %0" : "=r"(v) : "0"(v), "r"(v)); return v; }
     static Reg16 htons(Reg16 v) { return swap16(v); }
@@ -679,16 +679,16 @@ private:
     static Hertz _bus_clock;
 };
 
-inline CPU::Reg64 htole64(CPU::Reg64 v) { return CPU::htole64(v); }
+inline CPU::Reg64 _htole64(CPU::Reg64 v) { return CPU::_htole64(v); }
 inline CPU::Reg32 htole32(CPU::Reg32 v) { return CPU::htole32(v); }
-inline CPU::Reg16 htole16(CPU::Reg16 v) { return CPU::htole16(v); }
+inline CPU::Reg16 _htole16(CPU::Reg16 v) { return CPU::_htole16(v); }
 inline CPU::Reg64 letoh64(CPU::Reg64 v) { return CPU::letoh64(v); }
 inline CPU::Reg32 letoh32(CPU::Reg32 v) { return CPU::letoh32(v); }
 inline CPU::Reg16 letoh16(CPU::Reg16 v) { return CPU::letoh16(v); }
 
-inline CPU::Reg64 htobe64(CPU::Reg64 v) { return CPU::htobe64(v); }
+inline CPU::Reg64 _htobe64(CPU::Reg64 v) { return CPU::_htobe64(v); }
 inline CPU::Reg32 htobe32(CPU::Reg32 v) { return CPU::htobe32(v); }
-inline CPU::Reg16 htobe16(CPU::Reg16 v) { return CPU::htobe16(v); }
+inline CPU::Reg16 _htobe16(CPU::Reg16 v) { return CPU::_htobe16(v); }
 inline CPU::Reg64 betoh64(CPU::Reg64 v) { return CPU::betoh64(v); }
 inline CPU::Reg32 betoh32(CPU::Reg32 v) { return CPU::betoh32(v); }
 inline CPU::Reg16 betoh16(CPU::Reg16 v) { return CPU::betoh16(v); }

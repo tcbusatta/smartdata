@@ -130,6 +130,7 @@
     <ClInclude Include="include\architecture\tsc.h" />
     <ClInclude Include="include\machine\aes.h" />
     <ClInclude Include="include\machine\nic.h" />
+    <ClInclude Include="include\machine\udpnic.h" />
     <ClInclude Include="include\network\ethernet.h" />
     <ClInclude Include="include\network\hecops.h" />
     <ClInclude Include="include\network\tstp\locator.h" />
@@ -162,6 +163,7 @@
     <ClInclude Include="include\utility\random.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\machine\udpnic.cc" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\network\tstp\locator.cc" />
     <ClCompile Include="src\network\tstp\manager.cc" />
