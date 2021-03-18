@@ -163,7 +163,6 @@
     <ClInclude Include="include\utility\random.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\machine\udpnic.cc" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\network\tstp\locator.cc" />
     <ClCompile Include="src\network\tstp\manager.cc" />

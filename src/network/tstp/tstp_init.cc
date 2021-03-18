@@ -77,8 +77,9 @@ TSTP::Locator::Locator()
         db<TSTP>(INF) << "[node]" << endl;
 
     // Wait for spatial localization
-    while(confidence() < 80)
-        Thread::/*self()->*/yield();
+	// TCB - I commented this code because confidence didn't get higher than 80 and initialization was stuck here.
+    //while(confidence() < 80)
+    //    Thread::/*self()->*/yield();
 
     // _absolute_location is initialized later through an Epoch message
 }
@@ -124,12 +125,8 @@ void TSTP::init()
 {
     db<Init, TSTP>(TRC) << "TSTP::init()" << endl;
 
-	// TCB - Criar socket aqui. Derivar da NIC.
-
 	NIC<NIC_Family>* nic = new UDPNIC();
 
-	// Isso não vale mais...
-    // NIC<NIC_Family> * nic = Traits<NIC_Family>::DEVICES::Get<Traits<TSTP>::NICS[0]>::Result::get(Traits<TSTP>::NICS[0]);
     new /*(SYSTEM)*/ TSTP(nic);
 }
 

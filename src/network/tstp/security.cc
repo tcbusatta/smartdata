@@ -19,7 +19,7 @@ TSTP::Security::Pending_Keys TSTP::Security::_pending_keys;
 TSTP::Security::Peers TSTP::Security::_pending_peers;
 TSTP::Security::Peers TSTP::Security::_trusted_peers;
 volatile bool TSTP::Security::_peers_lock;
-Thread * TSTP::Security::_key_manager;
+Thread * TSTP::Security::_key_manager = 0;
 unsigned int TSTP::Security::_dh_requests_open;
 const SmartData::Time::Type TSTP::Security::KEY_MANAGER_PERIOD;
 const SmartData::Time::Type TSTP::Security::KEY_EXPIRY;

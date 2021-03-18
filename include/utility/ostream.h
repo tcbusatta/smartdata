@@ -3,6 +3,7 @@
 // EPOS OStream Interface
 
 #include <stdio.h>
+#include <pthread.h>
 
 extern "C" {
     void _print_preamble();
@@ -21,8 +22,24 @@ public:
     struct Bin {};
     struct Err {};
 
+private:
+	static pthread_mutex_t MutexHandle;
+	static bool MutexInitialized;
+
+
 public:
-    OStream(): _base(10), _error(false) {}
+	OStream() : _base(10), _error(false)
+	{
+		if (!MutexInitialized)
+		{
+			pthread_mutexattr_t mutexAttr;
+			pthread_mutexattr_init(&mutexAttr);
+			pthread_mutexattr_settype(&mutexAttr, PTHREAD_MUTEX_RECURSIVE);
+			pthread_mutex_init(&MutexHandle, &mutexAttr);
+			pthread_mutexattr_destroy(&mutexAttr);
+			MutexInitialized = true;
+		}
+	}
 
     OStream & operator<<(const Begl & begl) {
         if(Traits<System>::multicore)
@@ -146,7 +163,12 @@ public:
     }
 
 private:
-    void print(const char * s) { printf("%s", s); }
+    void print(const char * s)
+	{
+		pthread_mutex_lock(&MutexHandle); 
+		printf("%s", s);
+		pthread_mutex_unlock(&MutexHandle);
+	}
 
     int itoa(int v, char * s);
     int utoa(unsigned int v, char * s, unsigned int i = 0);

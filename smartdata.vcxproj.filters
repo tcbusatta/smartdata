@@ -53,7 +53,6 @@
     <ClCompile Include="src\utility\random.cc" />
     <ClCompile Include="src\utility\aes.cc" />
     <ClCompile Include="src\utility\bignum.cc" />
-    <ClCompile Include="src\machine\udpnic.cc" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMakeLists.txt" />

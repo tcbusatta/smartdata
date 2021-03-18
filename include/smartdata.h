@@ -691,7 +691,18 @@ public:
                 }
             break;
             }
-            db << ",ver=" << h.version() - V0 << ",tr=" << h.time_request() << ",sc=" << h.scale() << ",lc=" << h._location_confidence << ",o=" << h._origin << ",u=" << h._unit << ",d=" << h._device << ",lh=" << h._last_hop << "}";
+
+			db << ",ver=" << h.version() - V0;
+			db << ",tr=" << h.time_request();
+			db << ",sc=" << h.scale();
+			db << ",lc=" << h._location_confidence;
+			db << ",o=" << h._origin;
+			db << ",u=" << h._unit;
+			db << ",d=" << h._device;
+			db << ",lh=" << h._last_hop << "}";
+
+			
+			db << ",ver=" << h.version() - V0 << ",tr=" << h.time_request() << ",sc=" << h.scale() << ",lc=" << h._location_confidence << ",o=" << h._origin << ",u=" << h._unit << ",d=" << h._device << ",lh=" << h._last_hop << "}";
             return db;
         }
 
@@ -1276,7 +1287,7 @@ private:
 
 public:
     Interested_SmartData(const Region & region, const Time & expiry, const Microsecond & period = 0, const Mode & mode = SINGLE, const Uncertainty & uncertainty = ANY, const Device_Id & device = UNIQUE)
-    : _mode(mode), _region(region), _device(device), _uncertainty(uncertainty), _expiry(expiry), _period(period), _value(0), _predictor((predictive && (mode & PREDICTIVE)) ? new (SYSTEM) Predictor : 0), _link(this) {
+    : _mode(mode), _region(region), _device(device), _uncertainty(uncertainty), _expiry(expiry), _period(period), _value(0), _predictor((predictive && (mode & PREDICTIVE)) ? new /*(SYSTEM)*/ Predictor : 0), _link(this) {
         db<SmartData>(TRC) << "SmartData[I](r=" << region << ",d=" << device << ",x=" << expiry << ",m=" << ((mode & ALL) ? "ALL" : "SGL") << ",err=" << int(uncertainty) << ",p=" << period << ")=>" << this << endl;
         _interests.insert(&_link);
         Network::attach(this, UNIT);

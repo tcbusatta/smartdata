@@ -78,7 +78,7 @@ private:
 
     static Time sync_period() {
         Time tmp = Time(timer_accuracy()) * Time(timer_frequency()) / Time(1000000); // missed microseconds per second
-        tmp = Time(MAX_DRIFT) / tmp * Time(1000000); // us until MAX_DRIFT
+		tmp = Time(MAX_DRIFT) / tmp * Time(1000000); // us until MAX_DRIFT
         return tmp;
     }
     static void keep_alive();
