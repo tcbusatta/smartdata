@@ -4,6 +4,7 @@
 #include <transducer.h>
 #include <smartdata.h>
 #include <unistd.h>
+#include <string.h>
 
 static const int ITERATIONS = 10;
 
@@ -18,11 +19,29 @@ OStream cout;
 void controller(const Antigravity & in1, const Antigravity & in2, Antigravity & out) {}
 
 void sink();
+void Usage();
 void node();
 
-int main()
+int main(int argc, char* argv[])
 {
 	cout << "SmartData Test" << endl;
+
+	if (argc != 2)
+	{
+		Usage();
+		return -1;
+	}
+
+	bool isSink;
+	if (!strncmp(argv[1], "sink", 4))
+		isSink = true;
+	else if (!strncmp(argv[1], "node", 4))
+		isSink = false;
+	else
+	{
+		Usage();
+		return -1;
+	}
 
 	TSTP::init();
 
@@ -45,7 +64,7 @@ int main()
 	cout << "  TSTP::Header:              " << sizeof(TSTP::Header) << endl;
 	cout << "  TSTP::Packet:              " << sizeof(TSTP::Packet) << endl;
 
-	if (TSTP::here() == TSTP::sink())
+	if (isSink)
 		sink();
 	else
 		node();
@@ -55,6 +74,13 @@ int main()
 	cout << "Bye!" << endl;
 
 	return 0;
+}
+
+void Usage()
+{
+	cout << "Usage:" << endl;
+	cout << "  smartdata <mode>" << endl;
+	cout << "  mode: sink or node" << endl;
 }
 
 void sink()

@@ -202,6 +202,18 @@ public:
 		pthread_attr_destroy(&attr);
 	}
 
+	void data_received(const char* data, int size)
+	{
+		Protocol prot = PROTO_TSTP;
+		Buffer* buf = new Buffer(this, 0);
+
+		buf->size(size);
+
+		buf->fill(size, data);
+
+		notify(prot, buf);
+	}
+
 	static void* receive_thread(void* p)
 	{
 		db<UDPNIC>(TRC) << "receive_thread()" << endl;
@@ -236,7 +248,7 @@ public:
 			{
 				int ret = recvfrom(_socket, data, size, 0, NULL, NULL);
 				if (ret > 0)
-					udpnic->receive(0, 0, data, size);
+					udpnic->data_received(data, size);
 			}
 		}
 	}
